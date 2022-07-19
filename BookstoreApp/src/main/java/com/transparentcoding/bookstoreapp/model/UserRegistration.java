@@ -21,14 +21,14 @@ public class UserRegistration {
     private String emailId;
 
 
-    
-////    when we Implement IUserRegistrationService in UserRegistrationImplService then when we create method by updateUserRegistrationById then we write this
-//    public UserRegistration(UserRegistrationDto userRegistrationDto) {
-//        this.updateUserRegistrationById(userRegistrationDto);
-//
-//    }
-//
+
+//  when we Implement IUserRegistrationService in UserRegistrationImplService then when we create method by updateUserRegistrationById then we write this
     public UserRegistration(UserRegistrationDto userRegistrationDto) {
+        this.updateUserRegistrationById(userRegistrationDto);
+
+    }
+
+    public void updateUserRegistrationById(UserRegistrationDto userRegistrationDto) {
         this.firstName = userRegistrationDto.firstName;
         this.lastName = userRegistrationDto.lastName;
         this.dOB = userRegistrationDto.dOB;

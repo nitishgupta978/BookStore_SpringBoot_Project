@@ -1,5 +1,6 @@
 package com.transparentcoding.bookstoreapp.model;
 
+import com.transparentcoding.bookstoreapp.dto.UserRegistrationDto;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -19,25 +20,19 @@ public class UserRegistration {
     private String password;
     private String emailId;
 
-    public UserRegistration(String firstName, String lastName, String dOB,
-                            String password, String emailId) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.dOB = dOB;
-        this.password = password;
-        this.emailId = emailId;
-    }
+
+    
 ////    when we Implement IUserRegistrationService in UserRegistrationImplService then when we create method by updateUserRegistrationById then we write this
 //    public UserRegistration(UserRegistrationDto userRegistrationDto) {
 //        this.updateUserRegistrationById(userRegistrationDto);
 //
 //    }
 //
-//    public void updateUserRegistrationById(UserRegistrationDto userRegistrationDto) {
-//        this.firstName = userRegistrationDto.firstName;
-//        this.lastName = userRegistrationDto.lastName;
-//        this.dOB = userRegistrationDto.dOB;
-//        this.password =userRegistrationDto.password;
-//        this.emailId = userRegistrationDto.emailId;
-//    }
+    public UserRegistration(UserRegistrationDto userRegistrationDto) {
+        this.firstName = userRegistrationDto.firstName;
+        this.lastName = userRegistrationDto.lastName;
+        this.dOB = userRegistrationDto.dOB;
+        this.password =userRegistrationDto.password;
+        this.emailId = userRegistrationDto.emailId;
+    }
 }

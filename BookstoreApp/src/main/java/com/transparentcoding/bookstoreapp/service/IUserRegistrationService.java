@@ -9,6 +9,7 @@ import java.util.List;
 
 @Service
 public interface IUserRegistrationService {
+
     List<UserRegistration>getUserRegistrationAll();
     UserRegistration getUserRegistrationById(long userId);
 
@@ -18,3 +19,5 @@ public interface IUserRegistrationService {
 
     void deleteUserRegistrationById(long userId);
 }
+
+//

@@ -15,6 +15,7 @@ public class UserRegistrationImpService implements IUserRegistrationService {
     @Autowired
     private UserRegistrationRepository userRegistrationRepository;
 
+
     @Override
     public List<UserRegistration> getUserRegistrationAll() {
         return userRegistrationRepository.findAll();
@@ -48,3 +49,4 @@ public class UserRegistrationImpService implements IUserRegistrationService {
         userRegistrationRepository.delete(userRegistration);
     }
 }
+//

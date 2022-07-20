@@ -1,5 +1,6 @@
 package com.transparentcoding.bookstoreapp.service;
 ;
+import com.transparentcoding.bookstoreapp.dto.UserLoginDto;
 import com.transparentcoding.bookstoreapp.dto.UserRegistrationDto;
 import com.transparentcoding.bookstoreapp.exception.UserRegistrationException;
 import com.transparentcoding.bookstoreapp.model.UserRegistration;
@@ -9,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
+
 @Service
 @Slf4j
 public class UserRegistrationImpService implements IUserRegistrationService {
@@ -48,5 +51,17 @@ public class UserRegistrationImpService implements IUserRegistrationService {
         UserRegistration userRegistration=this.getUserRegistrationById(userId);
         userRegistrationRepository.delete(userRegistration);
     }
+
+    @Override
+    public Optional<UserRegistration> loginUser(UserLoginDto userLoginDto) {
+        Optional<UserRegistration> user = userRegistrationRepository.findByEmail(userLoginDto.getEmailId(),userLoginDto.getPassword());
+        boolean password = user.get().getPassword().equals(userLoginDto.getPassword());
+        if (user.isPresent()){
+            return user;
+
+        } else {
+
+            return null;
+        }
+    }
 }
-//

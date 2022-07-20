@@ -1,11 +1,13 @@
 package com.transparentcoding.bookstoreapp.service;
 
 
+import com.transparentcoding.bookstoreapp.dto.UserLoginDto;
 import com.transparentcoding.bookstoreapp.dto.UserRegistrationDto;
 import com.transparentcoding.bookstoreapp.model.UserRegistration;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public interface IUserRegistrationService {
@@ -18,6 +20,8 @@ public interface IUserRegistrationService {
     UserRegistration updateUserRegistrationById( long userId,UserRegistrationDto userRegistrationDto);
 
     void deleteUserRegistrationById(long userId);
+
+    Optional<UserRegistration> loginUser(UserLoginDto userLoginDto);
 }
 
 //

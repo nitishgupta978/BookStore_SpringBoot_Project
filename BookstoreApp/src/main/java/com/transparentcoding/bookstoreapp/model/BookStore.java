@@ -1,5 +1,6 @@
 package com.transparentcoding.bookstoreapp.model;
 
+import com.transparentcoding.bookstoreapp.dto.BookStoreDto;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -22,25 +23,17 @@ public class BookStore {
     private String bookPrice;
     private String bookQuantity;
 
-    public BookStore(String bookName, String bookAuthor, String bookDescription, String bookLogo, String bookPrice, String bookQuantity) {
-        this.bookName = bookName;
-        this.bookAuthor = bookAuthor;
-        this.bookDescription = bookDescription;
-        this.bookLogo = bookLogo;
-        this.bookPrice = bookPrice;
-        this.bookQuantity = bookQuantity;
+
+    public BookStore(BookStoreDto bookStoreDto) {
+        this.updateBookStoreById(bookStoreDto);
     }
 
-//    public BookStore(BookStoreDto bookStoreDto) {
-//        this.updateBookStoreById(bookStoreDto);
-//    }
-//
-//    public void updateBookStoreById(BookStoreDto bookStoreDto) {
-//        this.bookName =bookStoreDto. bookName;
-//        this.bookAuthor =bookStoreDto. bookAuthor;
-//        this.bookDescription = bookStoreDto.bookDescription;
-//        this.bookLogo =bookStoreDto. bookLogo;
-//        this.bookPrice =bookStoreDto. bookPrice;
-//        this.bookQuantity = bookStoreDto.bookQuantity;
-//    }
+    public void updateBookStoreById(BookStoreDto bookStoreDto) {
+        this.bookName =bookStoreDto. bookName;
+        this.bookAuthor =bookStoreDto. bookAuthor;
+        this.bookDescription = bookStoreDto.bookDescription;
+        this.bookLogo =bookStoreDto. bookLogo;
+        this.bookPrice =bookStoreDto. bookPrice;
+        this.bookQuantity = bookStoreDto.bookQuantity;
+    }
 }

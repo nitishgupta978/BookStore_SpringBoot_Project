@@ -2,6 +2,7 @@ package com.transparentcoding.bookstoreapp.service;
 
 ;
 import com.transparentcoding.bookstoreapp.dto.BookStoreDto;
+import com.transparentcoding.bookstoreapp.exception.BookStoreException;
 import com.transparentcoding.bookstoreapp.model.BookStore;
 import com.transparentcoding.bookstoreapp.repository.BookStoreRepository;
 import lombok.extern.slf4j.Slf4j;
@@ -22,7 +23,7 @@ public class BookStoreServiceImp implements IBookStoreService {
 
     @Override
     public BookStore getBookStoreById(long bookId) {
-        return bookStoreRepository.findById(bookId).orElseThrow(()->new BookStoreException ("BookStore this  bookId "+bookId+"does not exist!!"));
+        return bookStoreRepository.findById(bookId).orElseThrow(()->new BookStoreException("BookStore this  bookId "+bookId+"does not exist!!"));
     }
 
     @Override

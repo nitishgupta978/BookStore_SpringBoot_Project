@@ -18,9 +18,9 @@ public class BookStoreDto {
 
     public String bookLogo;
 
-    @Pattern(regexp = "^[1-9]{1}[0-9\\S]{2,}$" , message = "BookPrice not valid type like..200")
+    @Pattern(regexp = "^[1-9]{1}[0-9\\S]{1,}$" , message = "BookPrice not valid type like..200")
     public String bookPrice;
 
-    @Pattern(regexp = "^[1-9]{1}[0-9\\S]{1,}$" , message = "BookQuantity not valid type like..200")
+    @Pattern(regexp = "^[1-9]{1}|[0-9\\S]{1,}$" , message = "BookQuantity not valid type like..200")
     public String bookQuantity;
 }

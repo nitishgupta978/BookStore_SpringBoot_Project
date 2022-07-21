@@ -42,11 +42,11 @@ public class BookStoreController {
         ResponseDto responseDto = new ResponseDto("Create UserRegistration for userId successful !!",bookStore);
         return  new ResponseEntity<ResponseDto>(responseDto,HttpStatus.OK);
     }
-    @PutMapping("/update/{userId}")
-    public ResponseEntity<ResponseDto>updateBookStoreById(@PathVariable("userId")long userId,
+    @PutMapping("/update/{bookId}")
+    public ResponseEntity<ResponseDto>updateBookStoreById(@PathVariable("bookId")long bookId,
                                                                  @RequestBody BookStoreDto bookStoreDto){
         BookStore bookStore=null;
-        bookStore=iBookStoreService.updateBookStoreById(userId,bookStoreDto);
+        bookStore=iBookStoreService.updateBookStoreById(bookId,bookStoreDto);
         ResponseDto responseDto= new ResponseDto("update userRegistration for userId Successful !!",bookStore);
         return new ResponseEntity<ResponseDto>(responseDto,HttpStatus.OK);
     }

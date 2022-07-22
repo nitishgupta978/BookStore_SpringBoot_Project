@@ -5,15 +5,23 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 
-@Entity
 @Data
+@Entity
+@Table(name = "OrderService")
 @NoArgsConstructor
-@Table(name = "cartDetails")
-public class Cart {
+public class OrderDetails {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-     private long cartId;
+    private long orderId;
+
+    private LocalDate orderDate;
+    private long price;
+    private long quantity;
+    private String address;
+
     @JsonIgnoreProperties(value = {"applications","hibernateLazyInitializer"})
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "userId")
@@ -24,27 +32,18 @@ public class Cart {
     @JoinColumn(name = "bookId")
     private BookStore bookStore;
 
+    private boolean cancel;
 
-    private long quantity;
-    private long totalPrice;
+    public OrderDetails(UserRegistration userRegistration, BookStore bookStore, long quantity, long price, String address
+                        ) {
 
+        this.orderDate = LocalDate.now();
 
-
-    public Cart(UserRegistration  userRegistration, BookStore bookStore, long quantity, long totalPrice) {
-
-        this.userRegistration =userRegistration;
-        this.bookStore = bookStore;
+        this.price = price;
         this.quantity = quantity;
-        this.totalPrice = totalPrice;
-    }
-
-
-    public Cart(long cartId, long quantity, BookStore bookStore, UserRegistration userRegistration, long totalPrice) {
-
-        this.cartId=cartId;
-        this.userRegistration =userRegistration;
+        this.address = address;
+        this.userRegistration = userRegistration;
         this.bookStore = bookStore;
-        this.quantity = quantity;
-        this.totalPrice = totalPrice;
+        this.cancel = false;
     }
 }

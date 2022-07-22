@@ -84,7 +84,7 @@ public class CartServiceImp implements ICartService{
         if (cart.isPresent()){
            if( bookStore.isPresent() && userRegistration.isPresent()){
                Cart cartData = new Cart(cartId,cartDto.quantity,bookStore.get(),userRegistration.get(),cartDto.totalPrice);
-
+               return cartRepository.save(cartData);
 
            }else{
                throw new CartException("Book or User Doesn't Exist!!!");
@@ -92,7 +92,7 @@ public class CartServiceImp implements ICartService{
         }else{
             throw  new CartException("Invalid CartId !!!");
         }
-        return null;
+
     }
 
     @Override

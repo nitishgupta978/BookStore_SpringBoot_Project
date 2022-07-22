@@ -28,7 +28,9 @@ public class Cart {
     private long quantity;
     private long totalPrice;
 
-    public Cart(UserRegistration  userRegistration,BookStore bookStore,long quantity,long totalPrice) {
+
+
+    public Cart(UserRegistration  userRegistration, BookStore bookStore, long quantity, long totalPrice) {
 
         this.userRegistration =userRegistration;
         this.bookStore = bookStore;
@@ -38,5 +40,11 @@ public class Cart {
 
 
     public Cart(long cartId, long quantity, BookStore bookStore, UserRegistration userRegistration, long totalPrice) {
+
+        this.cartId=cartId;
+        this.userRegistration =userRegistration;
+        this.bookStore = bookStore;
+        this.quantity = quantity;
+        this.totalPrice = totalPrice;
     }
 }
